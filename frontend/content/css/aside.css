@@ -1,1 +1,39 @@
 @import url(./custom.css);
+
+aside {
+    width: 250px;
+    height: 100%;
+    overflow: hidden !important;
+    background-color: var(--third-color);
+    color: var(--first-color);
+    padding: 16px;
+}
+
+aside .aside-title{
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+aside ul {
+    padding-top: 16px;
+}
+
+aside ul > li {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+aside ul > li:hover {
+    background-color: #12372A;
+}
+
+aside ul li i {
+    margin-left: 10px;
+}
