@@ -78,16 +78,7 @@ body {
     .l-in {
       transform: translateX(0px);
     }
-    .l-fit {
-      width : 72%;
-    }
-    .l-p-fix {
-      position: fixed;
-    }
-    .l-top-0 {
-      top: 0;
-    }
-    .l-left-0 {
-      left: 0;
+    .l-mr {
+      margin-right: 250px;
     }
 }
