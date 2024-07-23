@@ -1,8 +1,7 @@
-@import url(./custom.css);
-
 aside {
     width: 250px;
     height: 100%;
+    flex: 1;
     overflow: hidden !important;
     background-color: var(--third-color);
     color: var(--first-color);
@@ -37,3 +36,4 @@ aside ul > li:hover {
 aside ul li i {
     margin-left: 10px;
 }
+

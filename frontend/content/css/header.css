@@ -1,7 +1,6 @@
-main {
+main{
     flex: 4;
-    padding: 16px;
-    padding-right: 280px;
+    margin: 16px;
 }
 
 header {
@@ -16,7 +15,7 @@ header .header-right-section{
     gap: 8px;
 }
 
-header .header-right-section i{
+header .header-right-section i.fa-user{
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -24,6 +23,10 @@ header .header-right-section i{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+header .header-right-section i.fa-bars-staggered{
+    cursor: pointer;
 }
 
 header .header-right-section .header-right-section-description{
@@ -50,7 +53,7 @@ header .header-left-section .input-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 0px 3px 0px #858585;
+    box-shadow: 0px 0px 3px 0px #858585; 
 }
 
 header .header-left-section .input-container button{
@@ -98,3 +101,4 @@ header .header-left-section .header-btn{
 header .header-left-section .header-btn:hover{
     background-color: #12372A;
 }
+

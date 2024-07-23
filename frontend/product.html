@@ -11,7 +11,7 @@
 
 <body>
     <!-- aside section -->
-    <aside class="col-xs-5 xs-hidden s-block">
+    <aside class="xs-hidden s-hidden l-block">
         <p class="aside-title">به داشبورد خود خوش آمدید</p>
         <ul>
             <li>
@@ -41,10 +41,13 @@
         </ul>
     </aside>
     <!-- main section -->
-    <main class="col-xs-7">
+    <main>
         <!-- header section -->
         <header>
             <div class="header-right-section">
+                <div class="xs-block s-block l-hidden">
+                    <i class="fa-solid fa-bars-staggered "></i>
+                </div>
                 <i class="fa-regular fa-user"></i>
                 <div class="header-right-section-description">
                     <h1>گلشید ابراهیمی دلدار</h1>
@@ -52,9 +55,16 @@
                 </div>
             </div>
             <div class="header-left-section">
-                <div class="input-container">
-                    <input type="search" placeholder="جست و جو کن ...">
-                    <button>جست و جو</button>
+                <div class="xs-block s-block md-hidden">
+                    <button class="header-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="xs-hidden s-hidden md-block">
+                    <div class="input-container">
+                        <input type="search" placeholder="جست و جو کن ...">
+                        <button>جست و جو</button>
+                    </div>
                 </div>
                 <button class="header-btn">
                     <i class="fa-solid fa-bell"></i>
