@@ -11,7 +11,7 @@
 
 <body>
     <!-- aside section -->
-    <aside class="xs-hidden s-hidden l-block">
+    <aside class="xs-out s-out l-in">
         <p class="aside-title">به داشبورد خود خوش آمدید</p>
         <ul>
             <li>
@@ -41,12 +41,12 @@
         </ul>
     </aside>
     <!-- main section -->
-    <main>
+    <main class="xs-full s-full l-fit l-p-fix l-top-0 l-left-0">
         <!-- header section -->
         <header>
             <div class="header-right-section">
                 <div class="xs-block s-block l-hidden">
-                    <i class="fa-solid fa-bars-staggered "></i>
+                    <i class="fa-solid fa-bars-staggered"></i>
                 </div>
                 <i class="fa-regular fa-user"></i>
                 <div class="header-right-section-description">
@@ -74,7 +74,11 @@
                 </button>
             </div>
         </header>
+        <!-- main content -->
+        <div class="main-content"></div>
     </main>
 </body>
+
+<script src="/frontend/content/scripts/app.js"></script>
 
 </html>
