@@ -1,1 +1,18 @@
 @import url('./css-reset.css');
+
+:root{
+    --first-color : #ffffff;
+    --secont-color : #f0f0f0;
+    --third-color : #114232
+}
+
+@font-face {
+    font-family: Morabba-bold;
+    src: url('.././fonts/Morabba/woff2/Morabba-Bold.woff2'),
+}
+
+@font-face {
+    font-family: Dana-medium;
+    src: url('.././fonts/Dana/woff2/DanaFaNum-Medium.woff2');
+}
+
