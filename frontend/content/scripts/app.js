@@ -10,13 +10,11 @@ function showSideNav() {
     overlay.style.display = 'block'
 }
 
-
 function hideSideNav() {
     aside.style.transform = 'translateX(250px)'
     aside.style.transition = 'all 0.2s ease'
     overlay.style.display = 'none'
 }
-
 
 // events
 bars.addEventListener('click' , showSideNav)

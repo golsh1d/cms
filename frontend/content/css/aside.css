@@ -1,10 +1,12 @@
+@import url('./custom.css');
+
 aside {
     height: 100%;
     width: 250px;
     overflow: hidden !important;
     background-color: var(--third-color);
     color: var(--first-color);
-    padding: 16px;
+    padding: 16px !important;
     position: fixed;
     top: 0;
     right: 0;
