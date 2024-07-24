@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کاربران</title>
+    <link rel="stylesheet" href="./content/css/cms/cms.css">
+    <script src="https://kit.fontawesome.com/4f2890a18c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- modal -->
+    <div class="modal">
+        <div class="detail-modal">
+            <table class="cms-detail-table">
+                <tr class="cms-detail-table-heading-tr">
+                    <th>محبوبیت</th>
+                    <th>فروش</th>
+                    <th>رنگ بندی</th>
+                </tr>
+                <tr class="cms-detail-table-tr">
+                    <td>100%</td>
+                    <td>10</td>
+                    <td>رنگی</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="delete-modal">
+            <p>آیا از حذف محصول مورد نظر مطمئنید؟</p>
+            <div class="delete-modal-btn-container">
+                <div class="delete-modal-btn delete-modal-yes-btn">بله</div>
+                <div class="delete-modal-btn delete-modal-no-btn">خیر</div>
+            </div>
+        </div>
+    </div>
+    <!-- aside section -->
+    <aside class="xs-out s-out l-in">
+        <p class="aside-title">به داشبورد خود خوش آمدید</p>
+        <ul>
+            <li>
+                <i class="fa-solid fa-house"></i>
+                <a href="./index.html">صفحه ی اصلی</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-shop"></i>
+                <a href="./product.html">محصولات</a>
+            </li>
+            <li>
+                <i class="fa-regular fa-comment"></i>
+                <a href="./comments.html">کامنت ها</a>
+            </li>
+            <li class="active-li">
+                <i class="fa-solid fa-users"></i>
+                <a href="./users.html">کاربران</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-basket-shopping"></i>
+                <a href="./orders.html">سفارش ها</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-tag"></i>
+                <a href="./offs.html">تخفیف ها</a>
+            </li>
+        </ul>
+    </aside>
+    <!-- main section -->
+    <main class="xs-full s-full l-mr">
+        <!-- header section -->
+        <header>
+            <div class="header-right-section">
+                <div class="xs-block s-block l-hidden">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+                <i class="fa-regular fa-user"></i>
+                <div class="header-right-section-description">
+                    <h1>گلشید ابراهیمی دلدار</h1>
+                    <h3>برنامه نویس فرانت اند</h3>
+                </div>
+            </div>
+            <div class="header-left-section">
+                <div class="xs-block s-block md-hidden">
+                    <button class="header-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="xs-hidden s-hidden md-block">
+                    <div class="input-container">
+                        <input type="search" placeholder="جست و جو کن ...">
+                        <button>جست و جو</button>
+                    </div>
+                </div>
+                <button class="header-btn">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+                <button class="header-btn">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </header>
+        <!-- main content -->
+        <div class="empty-err">محصولی یافت نشد !</div>
+    </main>
+    <!-- overlay -->
+    <div class="overlay"></div>
+</body>
+
+<script src="/frontend/content/scripts/app.js"></script>
+</html>
