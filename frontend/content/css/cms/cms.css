@@ -14,3 +14,24 @@
     align-items: center;
     justify-content: center;
 }
+
+.cms-detail-table {
+    width: 100%;
+}
+
+.cms-detail-table-heading-tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cms-detail-table-tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #efefef;
+}
