@@ -27,6 +27,31 @@
             </table>
         </div>
     </div>
+
+    <div class="modal">
+        <div class="update-modal">
+            <p>اطلاعات جدید را وارد کنید</p>
+            <form action="#" class="update-modal-form">
+                <div class="add-product-input">
+                    <i class="fa-solid fa-i-cursor"></i>
+                    <input type="text" placeholder="اسم محصول را وارد کنید">
+                </div>
+                <div class="add-product-input">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <input type="text" placeholder="قیمت محصول را وارد کنید">
+                </div>
+                <div class="add-product-input">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <input type="text" placeholder="موجودی محصول را وارد کنید">
+                </div>
+                <div class="add-product-input">
+                    <i class="fa-solid fa-image"></i>
+                    <input type="text" placeholder="آدرس عکس محصول را وارد کنید">
+                </div>
+                <button>ویرایش</button>
+            </form>
+        </div>
+    </div>
     <!-- aside section -->
     <aside class="xs-out s-out l-in">
         <p class="aside-title">به داشبورد خود خوش آمدید</p>
@@ -151,9 +176,9 @@
                         <td class="xs-w-60 s-w-100 product-table-tr-third-td">135,000 تومان</td>
                         <td class="xs-w-60 s-w-100 product-table-tr-forth-td">20 عدد</td>
                         <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
-                            <button class="product-table-btn">جزئیات</button>
-                            <button class="product-table-btn">حذف</button>
-                            <button class="product-table-btn">ویرایش</button>
+                            <button class="product-table-btn detail-btn">جزئیات</button>
+                            <button class="product-table-btn delete-btn">حذف</button>
+                            <button class="product-table-btn update-btn">ویرایش</button>
                         </td>
                     </tr>
                 </tbody>
@@ -165,5 +190,6 @@
 </body>
 
 <script src="/frontend/content/scripts/app.js"></script>
+<script src="/frontend/content/scripts/product.js"></script>
 
 </html>
