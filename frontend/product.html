@@ -77,6 +77,7 @@
         <!-- main content -->
         <section class="add-product-section">
             <h1 class="add-product-title">افزودن محصول جدید</h1>
+
             <form action="#" class="add-product-form">
                 <div class="xs-flex s-grid add-product-wrapper">
                     <div class="add-product-input">
@@ -98,27 +99,32 @@
                 </div>
                 <button class="add-product-btn">ثبت محصول</button>
             </form>
+
             <table class="product-table">
-                <tr class="product-table-heading-tr">
-                    <th>عکس</th>
-                    <th>اسم</th>
-                    <th>قیمت</th>
-                    <th>موجودی</th>
-                    <th>جزئیات</th>
-                </tr>
-                <tr class="product-table-tr">
-                    <td>
-                        <img src="./content/img/logo.png" alt="">
-                    </td>
-                    <td>کارت های یوگای کودک</td>
-                    <td>135,000 تومان</td>
-                    <td>20 عدد</td>
-                    <td>
-                        <button class="product-table-btn">جزئیات</button>
-                        <button class="product-table-btn">حذف</button>
-                        <button class="product-table-btn">ویرایش</button>
-                    </td>
-                </tr>
+                <thead>
+                    <tr class="product-table-heading-tr">
+                        <th>عکس</th>
+                        <th>اسم</th>
+                        <th>قیمت</th>
+                        <th>موجودی</th>
+                        <th>جزئیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="product-table-tr">
+                        <td class="product-table-tr-first-td">
+                            <img src="./content/img/logo.png" class="product-table-img" alt="">
+                        </td>
+                        <td class="product-table-tr-second-td">کارت های یوگای کودک</td>
+                        <td class="product-table-tr-third-td">135,000 تومان</td>
+                        <td class="product-table-tr-forth-td">20 عدد</td>
+                        <td class="product-table-tr-fifth-td">
+                            <button class="product-table-btn">جزئیات</button>
+                            <button class="product-table-btn">حذف</button>
+                            <button class="product-table-btn">ویرایش</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </section>
     </main>

@@ -56,3 +56,68 @@
 .add-product-btn:hover {
     background-color: #12372A;
 }
+
+.product-table {
+    width: 100%;
+    padding: 16px !important;
+    margin-top: 20px;
+    background-color: var(--first-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px #858585; 
+}
+
+.product-table thead {
+    width: 100%;
+}
+
+.product-table tbody {
+    width: 100%;
+}
+
+.product-table-heading-tr {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.product-table-heading-tr th {
+    width: 100px;
+}
+
+.product-table-img {
+    width: 100px;
+    height: 100px;    
+}
+
+.product-table-tr {
+   padding: 16px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.product-table-tr td {
+    font-size: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-table-btn {
+    background-color: var(--third-color);
+    color: var(--first-color);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-right: 3px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 0px #858585; 
+}
+
+.product-table-btn:hover {
+    background-color: #12372A;
+}
