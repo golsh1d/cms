@@ -11,6 +11,11 @@
     background-color: #12372A;
 }
 
+.cms-title {
+    margin-top: 60px;
+    font-size: 18px;
+}
+
 .cms-table {
     width: 100%;
     padding: 16px !important;

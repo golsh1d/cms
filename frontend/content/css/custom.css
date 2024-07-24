@@ -73,6 +73,9 @@ body {
     .s-w-100{
       width: 100px;
     }
+    .s-w-70 {
+      width: 70px;
+    }
 }
   
 @media screen and (min-width: 768px) {
