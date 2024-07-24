@@ -11,6 +11,69 @@
     background-color: #12372A;
 }
 
+.cms-table {
+    width: 100%;
+    padding: 16px !important;
+    margin-top: 20px;
+    background-color: var(--first-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px #858585; 
+}
+
+.cms-table thead {
+    width: 100%;
+}
+
+.cms-table tbody {
+    width: 100%;
+}
+
+.cms-table-heading-tr {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cms-table-heading-tr th {
+    text-align: center;
+}
+
+.cms-table-img {
+    width: 100px;
+    height: 100px;    
+}
+
+.cms-table-tr {
+   padding: 16px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.cms-table-tr td {
+    font-size: 10px;
+    text-align: center;
+}
+
+.cms-table-btn {
+    width: 60px;
+    background-color: var(--third-color);
+    color: var(--first-color);
+    border: none;
+    border-radius: 8px;
+    padding: 5px 8px;
+    font-size: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 0px #858585; 
+}
+
+.cms-table-btn:hover {
+    background-color: #12372A;
+}
+
 .empty-err {
     width: 100%;
     height: 70px;

@@ -57,75 +57,12 @@
     background-color: #12372A;
 }
 
-.product-table {
-    width: 100%;
-    padding: 16px !important;
-    margin-top: 20px;
-    background-color: var(--first-color);
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px 0px #858585; 
-}
-
-.product-table thead {
-    width: 100%;
-}
-
-.product-table tbody {
-    width: 100%;
-}
-
-.product-table-heading-tr {
-    width: 100%;
-    padding: 16px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.product-table-heading-tr th {
-    text-align: center;
-}
-
-.product-table-img {
-    width: 100px;
-    height: 100px;    
-}
-
-.product-table-tr {
-   padding: 16px;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-}
-
-.product-table-tr td {
-    font-size: 10px;
-    text-align: center;
-}
-
 .product-table-tr-fifth-td{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 3px;
-}
-
-.product-table-btn {
-    width: 60px;
-    background-color: var(--third-color);
-    color: var(--first-color);
-    border: none;
-    border-radius: 8px;
-    padding: 5px 8px;
-    font-size: 10px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    box-shadow: 0px 0px 3px 0px #858585; 
-}
-
-.product-table-btn:hover {
-    background-color: #12372A;
 }
 
 .update-modal {
