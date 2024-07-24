@@ -35,3 +35,53 @@
     padding-top: 10px;
     border-top: 1px solid #efefef;
 }
+
+.delete-modal {
+    width: 300px;
+    height: min-content;
+    padding: 16px;
+    background-color: var(--first-color);
+    border-radius: 10px;
+}
+
+.delete-modal p{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.delete-modal-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.delete-modal-btn {
+    width: 45%;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 3px 0px #858585;
+    color: var(--first-color);
+}
+
+.delete-modal-yes-btn{
+    background-color: var(--third-color);
+}
+
+.delete-modal-yes-btn:hover {
+    background-color: #12372A;
+}
+
+.delete-modal-no-btn {
+    background-color: brown;
+}
+
+.delete-modal-no-btn:hover {
+    background-color: rgb(128, 34, 34);
+}
