@@ -15,11 +15,11 @@
     flex-direction: column;
 }
 
-.add-product-wrapper {
+/* .add-product-wrapper {
     display: grid;
     gap: 16px 16px;
     grid-template-columns: 1fr 1fr;
-}
+} */
 
 .add-product-input {
     background-color: var(--second-color);
