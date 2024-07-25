@@ -113,6 +113,12 @@
     border-top: 1px solid #efefef;
 }
 
+.cms-detail-table-tr td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal {
     position: absolute;
     top: 0;
