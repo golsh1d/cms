@@ -91,6 +91,12 @@ body {
     .md-hidden {
         display: none;
     }
+    .md-w-80 {
+      width: 80px;
+    }
+    .md-w-100 {
+      width: 100px;
+    }
 }
   
 @media screen and (min-width: 992px) {
