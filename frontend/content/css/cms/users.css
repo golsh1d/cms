@@ -5,3 +5,60 @@
     flex-direction: column;
     gap: 3px;
 }
+
+.edit-user-info-modal {
+    width: 300px;
+    padding: 16px;
+    background-color: var(--first-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.edit-user-info-modal-title {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.edit-user-info-modal-input{
+    width: 100%;
+    background-color: var(--second-color);
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0px 0px 3px 0px #858585; 
+    margin-bottom: 8px;
+}
+
+.edit-user-info-modal-input i {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-user-info-modal-input input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.edit-user-info-modal-btn {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--third-color);
+    color: var(--first-color);
+    padding: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 0px 0px 3px 0px #858585; 
+}
+
+.edit-user-info-modal-btn:hover {
+    background-color: #12372A;
+}
