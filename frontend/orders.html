@@ -49,11 +49,11 @@
                 <i class="fa-solid fa-shop"></i>
                 <a href="./product.html">محصولات</a>
             </li>
-            <li >
+            <li>
                 <i class="fa-regular fa-comment"></i>
                 <a href="./comments.html">کامنت ها</a>
             </li>
-            <li >
+            <li>
                 <i class="fa-solid fa-users"></i>
                 <a href="./users.html">کاربران</a>
             </li>
@@ -102,11 +102,46 @@
             </div>
         </header>
         <!-- main content -->
-        <div class="empty-err">محصولی یافت نشد !</div>
+        <section class="main-content">
+            <div class="cms-title">لیست سفارشات ثبت شده</div>
+            <div class="empty-err">سفارشی یافت نشد !</div>
+            <table class="cms-table">
+                <thead>
+                    <tr class="cms-table-heading-tr">
+                        <th class="xs-w-50 s-w-60">نام محصول</th>
+                        <th class="xs-w-50 s-w-60">نام خریدار</th>
+                        <th class="xs-w-50 s-w-60">تاریخ سفارش</th>
+                        <th class="xs-w-50 s-w-60 xs-hidden s-block">ساعت</th>
+                        <th class="xs-w-50 s-w-60 xs-hidden s-block">مبلغ</th>
+                        <th class="xs-w-50 s-w-60 xs-hidden s-block">تخفیف</th>
+                        <th class="xs-w-50 s-w-60">مبلغ نهایی</th>
+                        <th class="xs-w-60 s-w-60">جزئیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="cms-table-tr">
+                        <td class="xs-w-50 s-w-60">کارت های یوگای کودک</td>
+                        <td class="xs-w-50 s-w-60">گلشید ابراهیمی</td>
+                        <td class="xs-w-50 s-w-60">10 مرداد 1403</td>
+                        <td class="xs-w-50 s-w-60 xs-hidden s-block">12:00</td>
+                        <td class="xs-w-50 s-w-60 xs-hidden s-block">150,000 تومان</td>
+                        <td class="xs-w-50 s-w-60 xs-hidden s-block">0</td>
+                        <td class="xs-w-50 s-w-60">150,000 تومان</td>
+                        <td class="orders-table-details xs-w-60 s-w-60">
+                            <button class="cms-table-btn">جزئیات</button>
+                            <button class="cms-table-btn">حذف</button>
+                            <button class="cms-table-btn">بعدا بررسی شود</button>
+                            <button class="cms-table-btn">تایید</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
     <!-- overlay -->
     <div class="overlay"></div>
 </body>
 
 <script src="/frontend/content/scripts/app.js"></script>
+
 </html>

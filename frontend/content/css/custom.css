@@ -50,6 +50,9 @@ body {
     .xs-w-60 {
       width: 60px;
     }
+    .xs-w-50 {
+      width: 50px;
+    }
 }
   
 @media screen and (min-width: 600px) {
@@ -75,6 +78,9 @@ body {
     }
     .s-w-70 {
       width: 70px;
+    }
+    .s-w-60 {
+      width: 60px;
     }
 }
   
