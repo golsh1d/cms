@@ -26,4 +26,17 @@ commentsRoute.delete('/:commentId' , (req , res) => {
     })
 })
 
+commentsRoute.put('/:commentId' , (req , res) => {
+    let commentId = req.params.commentId
+    let body = req.body
+    let updateCommentQuery = `UPDATE comments SET body=${body.body} WHERE id = ${commentId}`
+    sqlConnection.query(updateCommentQuery , (err , result) => {
+        if (err) {
+            res.send(null)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
 module.exports = commentsRoute
