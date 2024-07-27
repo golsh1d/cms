@@ -13,4 +13,16 @@ productsRoute.get('/' , (req , res) => {
     })
 })
 
+productsRoute.delete('/:productId' , (req , res) => {
+    let productId = req.params.productId
+    let deleteProductquery = `DELETE FROM products WHERE id = ${productId}`
+    sqlConnection.query(deleteProductquery , (err , result) => {
+        if (err) {
+            res.send(null)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
 module.exports = productsRoute
