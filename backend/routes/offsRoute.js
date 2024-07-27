@@ -14,4 +14,16 @@ offsRoute.get('/' , (req , res) => {
     })
 })
 
+offsRoute.delete('/:offsId' , (req , res) => {
+    let offsId = req.params.offsId
+    let deleteOffQuery = `DELETE FROM offs WHERE id = ${offsId}`
+    sqlConnection.query(deleteOffQuery , (err , result) => {
+        if (err) {
+            res.send(null)
+        } else {
+            res.send(result)
+        } 
+    })
+})
+
 module.exports = offsRoute
