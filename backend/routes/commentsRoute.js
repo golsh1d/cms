@@ -1,6 +1,5 @@
 let express = require('express')
 let sqlConnection = require('./../DB/cmsShop')
-const { result } = require('lodash')
 let commentsRoute = express.Router()
 
 commentsRoute.get('/', (req , res) => {
