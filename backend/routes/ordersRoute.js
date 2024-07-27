@@ -13,4 +13,16 @@ ordersRoute.get('/' , (req , res) => {
     })
 })
 
+ordersRoute.delete('/:orderId' , (req , res) => {
+    let orderId = req.params.orderId
+    let deleteOrderQuery = `DELETE FROM orders WHERE id = ${orderId}`
+    sqlConnection.query(deleteOrderQuery , (err , result) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
 module.exports = ordersRoute
