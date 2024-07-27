@@ -6,7 +6,7 @@ ordersRoute.get('/' , (req , res) => {
     let selectAllOrdersQuery = `SELECT * FROM orders`
     sqlConnection.query(selectAllOrdersQuery , (err , result) => {
         if (err) {
-            res.send(err)
+            res.send(null)
         } else {
             res.send(result)
         }
@@ -18,7 +18,7 @@ ordersRoute.delete('/:orderId' , (req , res) => {
     let deleteOrderQuery = `DELETE FROM orders WHERE id = ${orderId}`
     sqlConnection.query(deleteOrderQuery , (err , result) => {
         if (err) {
-            res.send(err)
+            res.send(null)
         } else {
             res.send(result)
         }
