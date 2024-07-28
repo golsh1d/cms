@@ -4,10 +4,11 @@ let adminsRoute = express.Router()
 
 adminsRoute.get('/' , (req , res) => {
     let adminToken = req.headers.authorization
-    let selectAdminQuery = `SELECT * FROM admins WHERE token = ${adminToken}`
+    let selectAdminQuery = `SELECT * FROM admins WHERE token = '${adminToken}'`
     sqlConnection.query(selectAdminQuery , (err , result) => {
         if (err) {
             res.send(null)
+            console.log(err);
         } else {
             res.send(result)
         }
