@@ -57,3 +57,32 @@ req body = {
 
 
 //finish comments route (sub url = comments/)
+
+
+//start users route (sub url = users/)
+
+1- get all users
+method = GET
+respond = all users array
+
+2- delete users
+method = DELETE
+req param = userId = user id
+
+3- update user
+method = PUT
+req param = userId = user id
+req body = {
+    firstName => نام
+    lastName => نام خانوادگی
+    userName => نام کاربری
+    password => رمز عبور
+    phone => شماره تماس
+    email => ایمیل
+    city => شهر
+    address => آدرس
+    score => امتیاز
+    buy => تعداد خرید
+}
+
+//finish users route (sub url = users/)
