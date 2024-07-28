@@ -86,3 +86,22 @@ req body = {
 }
 
 //finish users route (sub url = users/)
+
+
+//start orders route (sub url = orders/)
+
+1- get all orders
+method = GET
+respond = all orders array
+
+2- delete orders
+method = DELETE
+req param = orderId = order id
+
+3- update order
+sub url = active-order/
+method = PUT
+req param = orderId = order id
+req param = isActive = 1 or 0
+
+//finish orders route (sub url = orders/)
