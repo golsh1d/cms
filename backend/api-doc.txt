@@ -1,6 +1,6 @@
-main url = http://localhost:3000/api
+main url = http://localhost:3000/api/
 
-//start product route (sub url = products)
+//start product route (sub url = products/)
 
 1- get all products
 method = GET
@@ -35,4 +35,25 @@ req body = {
     color => رنگبندی
 }
 
-//finish product route (sub url = products)
+//finish product route (sub url = products/)
+
+
+//start comments route (sub url = comments/)
+
+1- get all comments
+method = GET
+respond = all comments array
+
+2- delete comments
+method = DELETE
+req params = commentId = comment id
+
+3- update comments
+method = PUT
+req params = commentId = comment id
+req body = {
+    body => متن ویرایش شده کامنت مورد نظر
+}
+
+
+//finish comments route (sub url = comments/)
