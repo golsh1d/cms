@@ -105,3 +105,22 @@ req param = orderId = order id
 req param = isActive = 1 or 0
 
 //finish orders route (sub url = orders/)
+
+
+//start offs route (sub url = offs/)
+
+1- get all offs
+method = GET
+respond = all offs array
+
+2- delete off
+method = DELETE
+req param = offId = off id
+
+3- update off
+sub url = active-off/
+method = PUT
+req param = offId = off id
+req param = isActive = 1 or 0
+
+//finish offs route (sub url = offs/)
