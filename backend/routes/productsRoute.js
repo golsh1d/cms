@@ -28,7 +28,7 @@ productsRoute.delete('/:productId' , (req , res) => {
 productsRoute.put('/:productId' , (req , res) => {
     let body = req.body
     let productId = req.params.productId
-    let updateProductQuery = `UPDATE products SET id=NULL,title=${body.title},price=${body.price},count=${body.count},img=${body.img},popularity=${body.popularity},sale=${body.sale},color=${body.color} WHERE id = ${productId}`
+    let updateProductQuery = `UPDATE products SET title='${body.title}',price=${body.price},count=${body.count},img='${body.img}',popularity=${body.popularity},sale=${body.sale},color=${body.color} WHERE id = ${productId}`
     sqlConnection.query(updateProductQuery , (err , result) => {
         if (err) {
             res.send(null)
@@ -40,7 +40,7 @@ productsRoute.put('/:productId' , (req , res) => {
 
 productsRoute.post('/' , (req , res) => {
     let body = req.body
-    let addProductQuery = `INSERT INTO products (id, title, price, count, img, popularity, sale, color) VALUES (NULL,${body.title},${body.price},${body.count},${body.img},${body.popularity},${body.sale},${body.color})`
+    let addProductQuery = `INSERT INTO products (id, title, price, count, img, popularity, sale, color) VALUES (NULL,'${body.title}',${body.price},${body.count},'${body.img}',${body.popularity},${body.sale},${body.color})`
     sqlConnection.query(addProductQuery , (err , result) => {
         if (err) {
             res.send(null)
