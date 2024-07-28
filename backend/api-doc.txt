@@ -1,0 +1,38 @@
+main url = http://localhost:3000/api
+
+//start product route (sub url = products)
+
+1- get all products
+method = GET
+respond = all products array
+
+2- delete product
+method = DELETE
+req params = productId = product id
+
+3- update product
+method = PUT
+req params = productId = product id
+req body = {
+    title => نام
+    price => قیمت
+    count => تعداد
+    img => آدرس عکس
+    popularity => محبوبیت
+    sale => میزان فروش
+    color => رنگبندی
+}
+
+4- create delete product
+method = POST
+req body = {
+    title => نام
+    price => قیمت
+    count => تعداد
+    img => آدرس عکس
+    popularity => محبوبیت
+    sale => میزان فروش
+    color => رنگبندی
+}
+
+//finish product route (sub url = products)
