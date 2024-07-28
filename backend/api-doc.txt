@@ -124,3 +124,12 @@ req param = offId = off id
 req param = isActive = 1 or 0
 
 //finish offs route (sub url = offs/)
+
+
+//start admins route (sub url = admins/)
+
+1- select main admin
+method = GET
+req headers authorization = adminToken = admin token
+
+//finish admins route (sub url = admins/)
