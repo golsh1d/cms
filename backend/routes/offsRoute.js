@@ -3,7 +3,7 @@ let sqlConnection = require('./../DB/cmsShop')
 let offsRoute = express.Router()
 
 offsRoute.get('/' , (req , res) => {
-    let selectAllOffsQuery = `SELECT * FROM offs`
+    let selectAllOffsQuery = `SELECT offs.id , offs.code , offs.percent , offs.date , offs.isActive , admins.firstName as adminId , products.title AS productId FROM offs INNER JOIN admins ON admins.id = offs.adminId INNER JOIN products ON products.id = offs.productId`
     sqlConnection.query(selectAllOffsQuery , (err , result) => {
         if (err) {
             res.send(null)

@@ -3,7 +3,7 @@ let sqlConnection = require('./../DB/cmsShop')
 let ordersRoute = express.Router()
 
 ordersRoute.get('/' , (req , res) => {
-    let selectAllOrdersQuery = `SELECT * FROM orders`
+    let selectAllOrdersQuery = `SELECT orders.id , orders.date , orders.hour , orders.price , orders.off , orders.sale , orders.popularity , orders.count , orders.sale_count , orders.isActive , users.firstName AS userId , products.title AS productId FROM orders INNER JOIN users ON users.id = orders.userId INNER JOIN products ON products.id = orders.productId`
     sqlConnection.query(selectAllOrdersQuery , (err , result) => {
         if (err) {
             res.send(null)
