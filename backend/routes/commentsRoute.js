@@ -3,7 +3,7 @@ let sqlConnection = require('./../DB/cmsShop')
 let commentsRoute = express.Router()
 
 commentsRoute.get('/', (req , res) => {
-    let selectAllCommentsQuery = `SELECT * FROM comments`
+    let selectAllCommentsQuery = `SELECT comments.id , comments.body , comments.date , comments.hour , users.firstName as userId , products.title as productId FROM comments INNER JOIN users ON users.id = comments.userId INNER JOIN products ON products.id = comments.productId`
     sqlConnection.query(selectAllCommentsQuery , (err , result) => {
         if (err) {
             res.send(null)
