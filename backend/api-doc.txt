@@ -102,7 +102,7 @@ req param = orderId = order id
 sub url = active-order/
 method = PUT
 req param = orderId = order id
-req param = isActive = 1 or 0
+req param = isActive ( 1 or 0) = accept or reject
 
 //finish orders route (sub url = orders/)
 
@@ -121,7 +121,7 @@ req param = offId = off id
 sub url = active-off/
 method = PUT
 req param = offId = off id
-req param = isActive = 1 or 0
+req param = isActive ( 1 or 0) = accept or reject
 
 //finish offs route (sub url = offs/)
 
@@ -130,6 +130,6 @@ req param = isActive = 1 or 0
 
 1- select main admin
 method = GET
-req headers authorization = adminToken = admin token
+req headers = authorization = adminToken
 
 //finish admins route (sub url = admins/)
