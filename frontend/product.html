@@ -11,7 +11,7 @@
 
 <body>
     <!-- modal -->
-    <div class="modal">
+    <div class="modal detail-modal-wrapper">
         <div class="detail-modal">
             <table class="cms-detail-table">
                 <tr class="cms-detail-table-heading-tr">
@@ -20,15 +20,15 @@
                     <th class="xs-w-60 s-w-70">رنگ بندی</th>
                 </tr>
                 <tr class="cms-detail-table-tr">
-                    <td class="xs-w-60 s-w-70">100%</td>
-                    <td class="xs-w-60 s-w-70">10</td>
-                    <td class="xs-w-60 s-w-70">رنگی</td>
+                    <td class="xs-w-60 s-w-70 cms-detail-table-first-td"></td>
+                    <td class="xs-w-60 s-w-70 cms-detail-table-second-td"></td>
+                    <td class="xs-w-60 s-w-70 cms-detail-table-third-td"></td>
                 </tr>
             </table>
         </div>
     </div>
 
-    <div class="modal">
+    <div class="modal update-modal-wrapper">
         <div class="update-modal">
             <p>اطلاعات جدید را وارد کنید</p>
             <form action="#" class="update-modal-form">
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="modal">
+    <div class="modal delete-modal-wrapper">
         <div class="delete-modal">
             <p>آیا از حذف محصول مورد نظر مطمئنید؟</p>
             <div class="delete-modal-btn-container">
@@ -164,33 +164,7 @@
                         <th class="xs-w-60 s-w-100">جزئیات</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="cms-table-tr">
-                        <td class="xs-w-60 s-w-100 xs-hidden s-block product-table-tr-first-td">
-                            <img src="./content/img/logo.png" class="cms-table-img" alt="">
-                        </td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-second-td">کارت های یوگای کودک</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-third-td">135,000 تومان</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-forth-td">20 عدد</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
-                            <button class="cms-table-btn">جزئیات</button>
-                            <button class="cms-table-btn">حذف</button>
-                            <button class="cms-table-btn">ویرایش</button>
-                        </td>
-                    </tr>
-                    <tr class="cms-table-tr">
-                        <td class="xs-w-60 s-w-100 xs-hidden s-block product-table-tr-first-td">
-                            <img src="./content/img/logo.png" class="cms-table-img" alt="">
-                        </td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-second-td">کارت های یوگای کودک</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-third-td">135,000 تومان</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-forth-td">20 عدد</td>
-                        <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
-                            <button class="cms-table-btn detail-btn">جزئیات</button>
-                            <button class="cms-table-btn delete-btn">حذف</button>
-                            <button class="cms-table-btn update-btn">ویرایش</button>
-                        </td>
-                    </tr>
+                <tbody class="product-table-body">
                 </tbody>
             </table>
         </section>
