@@ -23,7 +23,7 @@ req body = {
     color => رنگبندی
 }
 
-4- create delete product
+4- create product
 method = POST
 req body = {
     title => نام

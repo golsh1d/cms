@@ -7,6 +7,12 @@ let deleteModal = document.querySelector('.delete-modal-wrapper')
 let productTableBody = document.querySelector('.product-table-body')
 let modalElem = document.querySelectorAll('.modal')
 let emptyErr = document.querySelector('.empty-err')
+let addTitleInput = document.querySelector('.add-product-title')
+let addPriceInput = document.querySelector('.add-product-price')
+let addCountInput = document.querySelector('.add-product-count')
+let addImgInput = document.querySelector('.add-product-img')
+let addBtn = document.querySelector('.add-product-btn')
+
 
 function showAllProducts() {
     fetch('http://localhost:3000/api/products/')
@@ -14,6 +20,7 @@ function showAllProducts() {
     .then(data => {
         if (data.length) {
             emptyErr.style.display = 'none'
+            productTableBody.innerHTML = ''
             data.forEach(obj => {
                 productTableBody.insertAdjacentHTML(`beforeend`,
                     `<tr class="cms-table-tr">
@@ -61,5 +68,37 @@ function hideModal() {
 }
 hideModal()
 
+function clearInputs() {
+    addTitleInput.value = ''
+    addPriceInput.value = ''
+    addImgInput.value = ''
+    addCountInput.value = ''
+}
+
+function sendData() {
+    let productInfoObj = {
+        title : addTitleInput.value,
+        price : addPriceInput.value,
+        count : addCountInput.value,
+        img :  addImgInput.value,
+        popularity : 10,
+        sale :  10,
+        color : 5,
+        }
+    if (productInfoObj) {
+        fetch('http://localhost:3000/api/products/' , {
+            method : 'POST',
+            headers : {
+                'Content-type' : 'application/json'
+            },
+            body : JSON.stringify(productInfoObj)
+        })
+        .then(res => console.log(res))
+        clearInputs()
+        showAllProducts()
+    } 
+}
+
 // events
 window.addEventListener('load' , showAllProducts)
+addBtn.addEventListener('click' , sendData)
