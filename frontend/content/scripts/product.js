@@ -15,6 +15,8 @@ let addPopularityInput = document.querySelector('.add-product-popularity')
 let addSaleInput = document.querySelector('.add-product-sale')
 let addColorInput = document.querySelector('.add-product-color')
 let addBtn = document.querySelector('.add-product-btn')
+let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
+let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
 
 
 function showAllProducts() {
@@ -35,7 +37,7 @@ function showAllProducts() {
                             <td class="xs-w-60 s-w-100 product-table-tr-forth-td">${obj.count}عدد</td>
                             <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
                                 <button onclick=showDetail(${obj.id}) class="cms-table-btn product-table-detail-btn">جزئیات</button>
-                                <button class="cms-table-btn product-table-delete-btn">حذف</button>
+                                <button onclick=showDelete(${obj.id}) class="cms-table-btn product-table-delete-btn">حذف</button>
                                 <button class="cms-table-btn product-table-update-btn">ویرایش</button>
                             </td>
                         </tr>`
@@ -62,26 +64,39 @@ function showDetail(id) {
     })
 }
 
-function hideModal() {
-    modalElem.forEach(modal => {
-        modal.addEventListener('click', () => {
-            modal.classList.remove('active')
-        })
+function showDelete(id) {
+    deleteModal.classList.add('active')
+    deleteModalNoBtn.addEventListener('click' , () => {
+        deleteModal.classList.remove('active')
+    })
+    deleteModalYesBtn.addEventListener('click' , async () => {
+        try {
+            let res = await fetch(`http://localhost:3000/api/products/${id}` , {
+                method : 'DELETE',
+                headers : {
+                    'Content-type' : 'application/json'
+                }
+            })
+            console.log(res)
+            deleteModal.classList.remove('active')
+            showAllProducts()
+        } catch (error) {
+            console.log(error);
+        }
     })
 }
-hideModal()
 
-function clearInputs() {
-    addTitleInput.value = ''
-    addPriceInput.value = ''
-    addImgInput.value = ''
-    addCountInput.value = ''
-    addPopularityInput.value = ''
-    addColorInput.value = ''
-    addSaleInput.value = ''
-}
+// function hideModal() {
+//     modalElem.forEach(modal => {
+//         modal.addEventListener('click', () => {
+//             modal.classList.remove('active')
+//         })
+//     })
+// }
+// hideModal()
 
-function sendData() {
+
+async function sendData() {
     let productInfoObj = {
         title : addTitleInput.value,
         price : addPriceInput.value,
@@ -92,17 +107,31 @@ function sendData() {
         color : addColorInput.value,
         }
     if (productInfoObj) {
-        fetch('http://localhost:3000/api/products/' , {
-            method : 'POST',
-            headers : {
-                'Content-type' : 'application/json'
-            },
-            body : JSON.stringify(productInfoObj)
-        })
-        .then(res => console.log(res))
-        clearInputs()
-        showAllProducts()
+        try {
+            let res = await fetch('http://localhost:3000/api/products/' , {
+                method : 'POST',
+                headers : {
+                    'Content-type' : 'application/json'
+                },
+                body : JSON.stringify(productInfoObj)
+            })
+            console.log(res)
+            clearInputs()
+            showAllProducts()
+        } catch (error) {
+            console.log(error);
+        }
     } 
+}
+
+function clearInputs() {
+    addTitleInput.value = ''
+    addPriceInput.value = ''
+    addImgInput.value = ''
+    addCountInput.value = ''
+    addPopularityInput.value = ''
+    addColorInput.value = ''
+    addSaleInput.value = ''
 }
 
 // events
