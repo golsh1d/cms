@@ -11,6 +11,9 @@ let addTitleInput = document.querySelector('.add-product-title')
 let addPriceInput = document.querySelector('.add-product-price')
 let addCountInput = document.querySelector('.add-product-count')
 let addImgInput = document.querySelector('.add-product-img')
+let addPopularityInput = document.querySelector('.add-product-popularity')
+let addSaleInput = document.querySelector('.add-product-sale')
+let addColorInput = document.querySelector('.add-product-color')
 let addBtn = document.querySelector('.add-product-btn')
 
 
@@ -73,6 +76,9 @@ function clearInputs() {
     addPriceInput.value = ''
     addImgInput.value = ''
     addCountInput.value = ''
+    addPopularityInput.value = ''
+    addColorInput.value = ''
+    addSaleInput.value = ''
 }
 
 function sendData() {
@@ -81,9 +87,9 @@ function sendData() {
         price : addPriceInput.value,
         count : addCountInput.value,
         img :  addImgInput.value,
-        popularity : 10,
-        sale :  10,
-        color : 5,
+        popularity : addPopularityInput.value,
+        sale :  addSaleInput.value,
+        color : addColorInput.value,
         }
     if (productInfoObj) {
         fetch('http://localhost:3000/api/products/' , {
