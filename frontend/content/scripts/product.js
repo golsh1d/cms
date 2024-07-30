@@ -38,7 +38,7 @@ function showAllProducts() {
                             <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
                                 <button onclick=showDetail(${obj.id}) class="cms-table-btn product-table-detail-btn">جزئیات</button>
                                 <button onclick=showDelete(${obj.id}) class="cms-table-btn product-table-delete-btn">حذف</button>
-                                <button class="cms-table-btn product-table-update-btn">ویرایش</button>
+                                <button onclick=showUpdate(${obj.id}) class="cms-table-btn product-table-update-btn">ویرایش</button>
                             </td>
                         </tr>`
                 )
@@ -101,6 +101,19 @@ function hideDeleteModalWithKey(event) {
     }
 }
 
+// show update modal
+function showUpdate(id) {
+    updateModal.classList.add('active')
+}
+
+// hide update modal
+function hideUpdate(event) {
+    console.log();
+    if (event.target.classList[1] === 'update-modal-wrapper') {
+        updateModal.classList.remove('active')
+    }
+}
+
 // send new product info
 async function sendData() {
     let productInfoObj = {
@@ -146,3 +159,4 @@ window.addEventListener('load' , showAllProducts)
 addBtn.addEventListener('click' , sendData)
 window.addEventListener('click' , hideDeleteModal)
 window.addEventListener('keydown' , hideDeleteModalWithKey)
+window.addEventListener('click' , hideUpdate)
