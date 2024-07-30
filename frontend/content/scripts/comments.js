@@ -9,6 +9,9 @@ let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
 let updateModalWrapper = document.querySelector('.update-modal-wrapper')
 let updateModaltextArea = document.querySelector('.update-modal-main')
 let updateModalBtn = document.querySelector('.update-modal-btn')
+let answerModalWrapper = document.querySelector('.answer-modal-wrapper')
+let answerModalBtn = document.querySelector('.answer-modal-btn')
+let answerModalTextArea = document.querySelector('.answer-modal-main')
 
 function showAllComments() {
     fetch('http://localhost:3000/api/comments/')
@@ -30,7 +33,7 @@ function showAllComments() {
                         <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
                             <button class="cms-table-btn" onclick="acceptComment(${obj.id})">تایید</button>
-                            <button class="cms-table-btn">پاسخ</button>
+                            <button class="cms-table-btn" onclick="showAnswerModal(${obj.id})">پاسخ</button>
                             <button class="cms-table-btn" onclick="showUpdateModal(${obj.id} , '${obj.body}')">ویرایش</button>
                         </td>
                     </tr>
@@ -151,6 +154,42 @@ function acceptComment(id) {
     .then(res => console.log(res))
 }
 
+//show answer modal
+function showAnswerModal(id) {
+    answerModalWrapper.classList.add('active')
+    answerModalBtn.addEventListener('click' , async () => {
+        let answerObj = {
+            answer : answerModalTextArea.value,
+        }
+        console.log(answerObj);
+        try {
+            let res = await fetch(`http://localhost:3000/api/comments/${id}` , {
+                method : 'PUT',
+                headers : {
+                    'Content-type' : 'application/json',
+                },
+                body : JSON.stringify(answerObj)
+            })
+            console.log(res);
+            answerModalWrapper.classList.remove('active')
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+function hideAnswerModal(event) {
+    if(event.target.classList[1] === 'answer-modal-wrapper'){
+        answerModalWrapper.classList.remove('active')
+    }
+}
+
+function hideAnswerModalwithKey(event) {
+    if(event.key === `Escape`) {
+        answerModalWrapper.classList.remove('active')
+    }
+}
+
 // event
 window.addEventListener('load' , showAllComments)
 window.addEventListener('click' , hideTextModal)
@@ -159,3 +198,5 @@ window.addEventListener('click' , hideDeleteModal)
 window.addEventListener('keydown' , hideDeleteModalwithKey)
 window.addEventListener('click' , hideUpdateModal)
 window.addEventListener('keydown' , hideUpdateModalwithKey)
+window.addEventListener('click' , hideAnswerModal)
+window.addEventListener('keydown' , hideAnswerModalwithKey)
