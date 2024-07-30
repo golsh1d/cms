@@ -6,7 +6,7 @@
     gap: 3px;
 }
 
-.text-modal , .answer-modal{
+.text-modal , .answer-modal , .update-modal{
     width: 400px;
     background-color: var(--first-color);
     border-radius: 10px;
@@ -16,7 +16,7 @@
     font-size: 14px;
 }
 
-.text-modal-btn , .answer-modal-btn{
+.text-modal-btn , .answer-modal-btn , .update-modal-btn{
     width: 100%;
     padding: 8px 10px;
     margin-top: 16px;
@@ -29,8 +29,15 @@
     transition: all 0.2s ease ;
 }
 
-.text-modal-btn:hover , .answer-modal-btn:hover{
+.text-modal-btn:hover , .answer-modal-btn:hover , .update-modal-btn:hover{
     background-color: #12372A;
+}
+
+.update-modal textarea {
+    width: 100%;
+    overflow-y: hidden;
+    text-align: right;
+    margin-right: -2.5px;
 }
 
 .answer-modal textarea {

@@ -54,6 +54,7 @@ function showAllProducts() {
             })
         } else {
             emptyErr.style.display = 'block'
+            productTableBody.innerHTML = ''
         }
     })
 }

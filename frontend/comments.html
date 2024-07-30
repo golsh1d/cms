@@ -11,22 +11,14 @@
 
 <body>
     <!-- modal -->
-    <div class="modal">
+    <div class="modal text-modal-wrapper">
         <div class="text-modal">
-            <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
-                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده
-                شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و
-                دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
-                اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-            </p>
+            <p class="text-modal-main"></p>
             <button class="text-modal-btn">بستن</button>
         </div>
     </div>
 
-    <div class="modal">
+    <div class="modal answer-modal-wrapper">
         <div class="answer-modal">
             <textarea name="" id="">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
@@ -41,26 +33,17 @@
         </div>
     </div>
 
-    <div class="modal">
-        <div class="detail-modal">
-            <table class="cms-detail-table">
-                <tr class="cms-detail-table-heading-tr">
-                    <th>محبوبیت</th>
-                    <th>فروش</th>
-                    <th>رنگ بندی</th>
-                </tr>
-                <tr class="cms-detail-table-tr">
-                    <td>100%</td>
-                    <td>10</td>
-                    <td>رنگی</td>
-                </tr>
-            </table>
+    <div class="modal update-modal-wrapper">
+        <div class="update-modal">
+            <textarea class="update-modal-main">
+            </textarea>
+            <button class="update-modal-btn">ویرایش</button>
         </div>
     </div>
 
-    <div class="modal">
+    <div class="modal delete-modal-wrapper">
         <div class="delete-modal">
-            <p>آیا از حذف محصول مورد نظر مطمئنید؟</p>
+            <p>آیا از حذف کامنت مورد نظر مطمئنید؟</p>
             <div class="delete-modal-btn-container">
                 <div class="delete-modal-btn delete-modal-yes-btn">بله</div>
                 <div class="delete-modal-btn delete-modal-no-btn">خیر</div>
@@ -146,22 +129,7 @@
                         <th class="xs-w-60 s-w-70 md-w-100">جزئیات</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="cms-table-tr">
-                        <td class="xs-w-60 s-w-70 md-w-100">golshid</td>
-                        <td class="xs-w-60 s-w-70 md-w-100">کارت های یوگای کودک</td>
-                        <td class="xs-w-60 s-w-70 md-w-100">
-                            <button class="cms-table-btn">دیدن متن</button>
-                        </td>
-                        <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">10 مرداد 1403</td>
-                        <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">12:00</td>
-                        <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
-                            <button class="cms-table-btn">حذف</button>
-                            <button class="cms-table-btn">تایید</button>
-                            <button class="cms-table-btn">پاسخ</button>
-                            <button class="cms-table-btn">ویرایش</button>
-                        </td>
-                    </tr>
+                <tbody class="comment-table-body">
                 </tbody>
             </table>
         </div>
@@ -172,5 +140,6 @@
 
 <script src="/frontend/content/scripts/app.js"></script>
 <script src="/frontend/content/scripts/adminInfo.js"></script>
+<script src="/frontend/content/scripts/comments.js"></script>
 
 </html>
