@@ -17,6 +17,15 @@ let addColorInput = document.querySelector('.add-product-color')
 let addBtn = document.querySelector('.add-product-btn')
 let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
 let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
+let updateModalTitle = document.querySelector('.update-modal-title-input')
+let updateModalPrice = document.querySelector('.update-modal-price-input')
+let updateModalCount = document.querySelector('.update-modal-count-input')
+let updateModalImg = document.querySelector('.update-modal-img-input')
+let updateModalPopularity = document.querySelector('.update-modal-popularity-input')
+let updateModalSale = document.querySelector('.update-modal-sale-input')
+let updateModalColor = document.querySelector('.update-modal-color-input')
+let updateModalBtn = document.querySelector('.update-modal-btn')
+
 
 // show all products
 function showAllProducts() {
@@ -104,6 +113,49 @@ function hideDeleteModalWithKey(event) {
 // show update modal
 function showUpdate(id) {
     updateModal.classList.add('active')
+    // get product info in modal 
+    fetch('http://localhost:3000/api/products/')
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(obj => {
+            if (obj.id === id) {
+                console.log(obj);
+                updateModalTitle.value = obj.title
+                updateModalPrice.value = obj.price
+                updateModalCount.value = obj.count
+                updateModalImg.value = obj.img
+                updateModalPopularity.value = obj.popularity
+                updateModalSale.value = obj.sale
+                updateModalColor.value = obj.color
+            }
+        })
+    })
+    // send edited info to backend
+    updateModalBtn.addEventListener('click' , async () => {
+        let newEditedInfoObj = {
+            title : updateModalTitle.value,
+            price : updateModalPrice.value,
+            count : updateModalCount.value,
+            img : updateModalImg.value,
+            popularity : updateModalPopularity.value,
+            sale : updateModalSale.value,
+            color : updateModalColor.value,
+        }
+        try {
+            let res = await fetch(`http://localhost:3000/api/products/${id}` , {
+                method : 'PUT',
+                headers : {
+                    'Content-type' : 'application/json'
+                },
+                body : JSON.stringify(newEditedInfoObj)
+            })
+            console.log(res);
+            updateModal.classList.remove('active')
+            showAllProducts()
+        } catch (error) {
+            console.log(error);
+        }
+    })
 }
 
 // hide update modal
