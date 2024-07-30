@@ -45,7 +45,7 @@ function showAllProducts() {
                             <td class="xs-w-60 s-w-100 product-table-tr-third-td">${obj.price}تومان</td>
                             <td class="xs-w-60 s-w-100 product-table-tr-forth-td">${obj.count}عدد</td>
                             <td class="xs-w-60 s-w-100 product-table-tr-fifth-td">
-                                <button onclick=showDetail(${obj.id}) class="cms-table-btn product-table-detail-btn">جزئیات</button>
+                                <button onclick=showDetail(${obj.popularity},${obj.sale},${obj.color}) class="cms-table-btn product-table-detail-btn">جزئیات</button>
                                 <button onclick=showDelete(${obj.id}) class="cms-table-btn product-table-delete-btn">حذف</button>
                                 <button onclick=showUpdate(${obj.id}) class="cms-table-btn product-table-update-btn">ویرایش</button>
                             </td>
@@ -60,19 +60,11 @@ function showAllProducts() {
 }
 
 // show detail modal
-function showDetail(id) {
+function showDetail(popularity , sale , color) {
     detailModal.classList.add('active')
-    fetch(`http://localhost:3000/api/products/`)
-    .then(res => res.json())
-    .then(data => {
-        data.forEach(obj => {
-            if (obj.id == id) {
-                productTablePopularity.innerHTML = obj.popularity                
-                productTableSale.innerHTML = obj.sale
-                productTableColors.innerHTML = obj.color                
-            }
-        })
-    })
+    productTablePopularity.innerHTML = popularity                
+    productTableSale.innerHTML = sale
+    productTableColors.innerHTML = color   
 }
 
 // hide detail modal

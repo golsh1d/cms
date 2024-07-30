@@ -33,16 +33,9 @@
     background-color: #12372A;
 }
 
-.update-modal textarea {
+.update-modal textarea , .answer-modal textarea {
     width: 100%;
     overflow-y: hidden;
     text-align: right;
-    margin-right: -2.5px;
-}
-
-.answer-modal textarea {
-    width: 100%;
-    height: 200px;
-    direction: rtl;
     margin-right: -2.5px;
 }
