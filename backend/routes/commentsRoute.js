@@ -38,4 +38,17 @@ commentsRoute.put('/:commentId' , (req , res) => {
     })
 })
 
+commentsRoute.put('/active-comment/:commentId/:isActive' , (req , res) => {
+    let commentId = req.params.commentId
+    let isActive = req.params.isActive
+    let updateIsActiveQuery = `UPDATE comments SET isActive=${isActive} WHERE id = ${commentId}`
+    sqlConnection.query(updateIsActiveQuery , (err , result) => {
+        if (err) {
+            res.send(null)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
 module.exports = commentsRoute

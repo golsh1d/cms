@@ -29,7 +29,7 @@ function showAllComments() {
                         <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.hour}</td>
                         <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
-                            <button class="cms-table-btn">تایید</button>
+                            <button class="cms-table-btn" onclick="acceptComment(${obj.id})">تایید</button>
                             <button class="cms-table-btn">پاسخ</button>
                             <button class="cms-table-btn" onclick="showUpdateModal(${obj.id} , '${obj.body}')">ویرایش</button>
                         </td>
@@ -138,6 +138,17 @@ function hideUpdateModalwithKey(event) {
     if(event.key === 'Escape') {
         updateModalWrapper.classList.remove('active')
     }
+}
+
+// accept comment
+function acceptComment(id) {
+    fetch(`http://localhost:3000/api/comments/active-comment/${id}/1` , {
+        method : 'PUT',
+        headers :{
+            'Content-type' : 'application/json',
+        },
+    })
+    .then(res => console.log(res))
 }
 
 // event
