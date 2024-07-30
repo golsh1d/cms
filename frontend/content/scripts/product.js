@@ -74,6 +74,20 @@ function showDetail(id) {
     })
 }
 
+// hide detail modal
+function hideDetailModal(event) {
+    if (event.target.classList[1] === 'detail-modal-wrapper'){
+        detailModal.classList.remove('active')
+    }
+}
+
+function hideDetailModalWithKey(event) {
+    if (event.key === 'Escape') {
+        detailModal.classList.remove('active')
+    }
+}
+
+
 // show delete modal
 function showDelete(id) {
     deleteModal.classList.add('active')
@@ -159,9 +173,14 @@ function showUpdate(id) {
 }
 
 // hide update modal
-function hideUpdate(event) {
-    console.log();
+function hideUpdateModal(event) {
     if (event.target.classList[1] === 'update-modal-wrapper') {
+        updateModal.classList.remove('active')
+    }
+}
+
+function hideUpdateModalWithKey(event) {
+    if (event.key === 'Escape') {
         updateModal.classList.remove('active')
     }
 }
@@ -211,4 +230,7 @@ window.addEventListener('load' , showAllProducts)
 addBtn.addEventListener('click' , sendData)
 window.addEventListener('click' , hideDeleteModal)
 window.addEventListener('keydown' , hideDeleteModalWithKey)
-window.addEventListener('click' , hideUpdate)
+window.addEventListener('click' , hideUpdateModal)
+window.addEventListener('keydown' , hideUpdateModalWithKey)
+window.addEventListener('click' , hideDetailModal)
+window.addEventListener('keydown' , hideDetailModalWithKey)
