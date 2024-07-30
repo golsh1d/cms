@@ -18,7 +18,7 @@ let addBtn = document.querySelector('.add-product-btn')
 let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
 let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
 
-
+// show all products
 function showAllProducts() {
     fetch('http://localhost:3000/api/products/')
     .then(res => res.json())
@@ -49,6 +49,7 @@ function showAllProducts() {
     })
 }
 
+// show detail modal
 function showDetail(id) {
     detailModal.classList.add('active')
     fetch(`http://localhost:3000/api/products/`)
@@ -64,6 +65,7 @@ function showDetail(id) {
     })
 }
 
+// show delete modal
 function showDelete(id) {
     deleteModal.classList.add('active')
     deleteModalNoBtn.addEventListener('click' , () => {
@@ -86,16 +88,20 @@ function showDelete(id) {
     })
 }
 
-// function hideModal() {
-//     modalElem.forEach(modal => {
-//         modal.addEventListener('click', () => {
-//             modal.classList.remove('active')
-//         })
-//     })
-// }
-// hideModal()
+// hide delete modal
+function hideDeleteModal(event) {
+    if (event.target.classList[1] === 'delete-modal-wrapper') {
+        deleteModal.classList.remove('active')
+    }
+}
 
+function hideDeleteModalWithKey(event) {
+    if(event.key === 'Escape') {
+        deleteModal.classList.remove('active') 
+    }
+}
 
+// send new product info
 async function sendData() {
     let productInfoObj = {
         title : addTitleInput.value,
@@ -124,6 +130,7 @@ async function sendData() {
     } 
 }
 
+// clear inputs after sending data
 function clearInputs() {
     addTitleInput.value = ''
     addPriceInput.value = ''
@@ -137,3 +144,5 @@ function clearInputs() {
 // events
 window.addEventListener('load' , showAllProducts)
 addBtn.addEventListener('click' , sendData)
+window.addEventListener('click' , hideDeleteModal)
+window.addEventListener('keydown' , hideDeleteModalWithKey)
