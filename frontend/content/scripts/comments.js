@@ -21,30 +21,51 @@ function showAllComments() {
             emptyErrBox.style.display = 'none'
             commentTableBody.innerHTML = ''
             data.forEach(obj => {
-                commentTableBody.insertAdjacentHTML(`beforeend` , 
-                    `<tr class="cms-table-tr">
-                        <td class="xs-w-60 s-w-70 md-w-100">${obj.userId}</td>
-                        <td class="xs-w-60 s-w-70 md-w-100">${obj.productId}</td>
-                        <td class="xs-w-60 s-w-70 md-w-100">
-                            <button class="cms-table-btn" onclick="showCommentText('${obj.body}')">دیدن متن</button>
-                        </td>
-                        <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.date}</td>
-                        <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.hour}</td>
-                        <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
-                            <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
-                            <button class="cms-table-btn" onclick="acceptComment(${obj.id})">تایید</button>
-                            <button class="cms-table-btn" onclick="showAnswerModal(${obj.id})">پاسخ</button>
-                            <button class="cms-table-btn" onclick="showUpdateModal(${obj.id} , '${obj.body}')">ویرایش</button>
-                        </td>
-                    </tr>
-                    `
-                )
+                if (obj.isReply === 1) {
+                    commentTableBody.insertAdjacentHTML(`beforeend` , 
+                        `<tr class="cms-table-tr">
+                            <td class="xs-w-60 s-w-70 md-w-100">${obj.userName}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100">${obj.title}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100">
+                                <button class="cms-table-btn" onclick="showCommentText('${obj.body}')">دیدن متن</button>
+                            </td>
+                            <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.date}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.hour}</td>
+                            <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
+                                <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
+                                <button class="cms-table-btn" onclick="acceptComment(${obj.id})">تایید</button>
+                                <button class="cms-table-btn" onclick="showAnswerModal(${obj.id},${obj.userId},${obj.productId})">پاسخ</button>
+                                <button class="cms-table-btn" onclick="showUpdateModal(${obj.id} , '${obj.body}')">ویرایش</button>
+                            </td>
+                        </tr>
+                        `
+                    )
+                } else {
+                    commentTableBody.insertAdjacentHTML(`beforeend` , 
+                        `<tr class="cms-table-tr">
+                            <td class="xs-w-60 s-w-70 md-w-100">${obj.firstName}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100">${obj.title}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100">
+                                <button class="cms-table-btn" onclick="showCommentText('${obj.body}')">دیدن متن</button>
+                            </td>
+                            <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.date}</td>
+                            <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.hour}</td>
+                            <td class="comment-table-details xs-w-60 s-w-70 md-w-100">
+                                <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
+                                <button class="cms-table-btn" onclick="acceptComment(${obj.id})">تایید</button>
+                                <button class="cms-table-btn" onclick="showAnswerModal(${obj.id},${obj.userId},${obj.productId})">پاسخ</button>
+                                <button class="cms-table-btn" onclick="showUpdateModal(${obj.id} , '${obj.body}')">ویرایش</button>
+                            </td>
+                        </tr>
+                        `
+                    )    
+                } 
             })
         } else {
             emptyErrBox.style.display = 'block'
             commentTableBody.innerHTML = ''
-        }
-    })
+        }  
+    })    
 }
 
 // show text modal
@@ -155,23 +176,47 @@ function acceptComment(id) {
 }
 
 //show answer modal
-function showAnswerModal(id) {
+let newCommentInfo = null
+function showAnswerModal(id , userId , productId) {
     answerModalWrapper.classList.add('active')
+    // event
     answerModalBtn.addEventListener('click' , async () => {
-        let answerObj = {
-            answer : answerModalTextArea.value,
+        location.reload();
+        console.log(id , userId , productId);
+        //prepare obj
+        let answer = answerModalTextArea.value
+        let year = new Date().getFullYear()
+        let month = new Date().getMonth()
+        let day = new Date().getDate()
+        let date = `${month}/${day}/${year}`
+        let minute = new Date().getMinutes()
+        let hour = new Date().getHours()
+        let time = `${hour}:${minute}`
+        //obj
+        let newCommentInfoObj = {
+            replyId : id,
+            body : answer,
+            date : date,
+            hour : time,
+            userId : userId,
+            productId : productId,
+            isActive : 0,
+            isReply : 1,
+            adminId : JSON.parse(localStorage.getItem('admin-token')),            
         }
-        console.log(answerObj);
+        console.log(newCommentInfoObj);
         try {
-            let res = await fetch(`http://localhost:3000/api/comments/${id}` , {
-                method : 'PUT',
+            let res = await fetch(`http://localhost:3000/api/comments/` , {
+                method : 'POST',
                 headers : {
                     'Content-type' : 'application/json',
                 },
-                body : JSON.stringify(answerObj)
+                body : JSON.stringify(newCommentInfoObj)
             })
-            console.log(res);
+            let data = await res.json()
+            console.log(data);
             answerModalWrapper.classList.remove('active')
+            showAllComments()
         } catch (error) {
             console.log(error);
         }

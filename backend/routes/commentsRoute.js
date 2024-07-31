@@ -3,7 +3,7 @@ let sqlConnection = require('./../DB/cmsShop')
 let commentsRoute = express.Router()
 
 commentsRoute.get('/', (req , res) => {
-    let selectAllCommentsQuery = `SELECT comments.id , comments.body , comments.date , comments.hour , users.firstName as userId , products.title as productId FROM comments INNER JOIN users ON users.id = comments.userId INNER JOIN products ON products.id = comments.productId`
+    let selectAllCommentsQuery = `SELECT comments.id , comments.body , comments.date , comments.hour , comments.isActive , comments.isReply , comments.userId , users.firstName , comments.productId , products.title , comments.adminId , admins.userName FROM comments INNER JOIN users ON users.id = comments.userId INNER JOIN products ON products.id = comments.productId INNER JOIN admins ON admins.id = comments.adminId;`
     sqlConnection.query(selectAllCommentsQuery , (err , result) => {
         if (err) {
             res.send(null)
@@ -51,13 +51,12 @@ commentsRoute.put('/active-comment/:commentId/:isActive' , (req , res) => {
     })
 })
 
-commentsRoute.put('/:commentId' , (req , res) => {
-    let commentId = req.params.commentId
+commentsRoute.post('/' , (req , res) => {
     let body = req.body
-    let setAnswerQuery = `UPDATE comments SET answer='${body.answer}' WHERE id = ${commentId}`
-    sqlConnection.query(setAnswerQuery , (err , result) => {
+    let addCommentQuery = `INSERT INTO comments(replyId, body, date, hour, userId, productId, isActive, isReply, adminId) VALUES (${body.replyId} ,'${body.body}','${body.date}','${body.hour}',${body.userId},${body.productId},${body.isActive},${body.isReply},${body.adminId})`
+    sqlConnection.query(addCommentQuery , (err , result) => {
         if (err) {
-            res.send(null)
+            res.send(err)
         } else {
             res.send(result)
         }
