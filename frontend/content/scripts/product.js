@@ -86,6 +86,7 @@ function showDelete(id) {
     deleteModal.classList.add('active')
     deleteModalNoBtn.addEventListener('click' , () => {
         deleteModal.classList.remove('active')
+        location.reload()
     })
     deleteModalYesBtn.addEventListener('click' , async () => {
         try {
@@ -108,12 +109,14 @@ function showDelete(id) {
 function hideDeleteModal(event) {
     if (event.target.classList[1] === 'delete-modal-wrapper') {
         deleteModal.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideDeleteModalWithKey(event) {
     if(event.key === 'Escape') {
         deleteModal.classList.remove('active') 
+        location.reload()
     }
 }
 
