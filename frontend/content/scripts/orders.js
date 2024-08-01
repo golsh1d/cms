@@ -4,8 +4,8 @@ let orderTableBody = document.querySelector('.order-table-body')
 let detailModalWrapper = document.querySelector('.detail-modal-wrapper')
 let detailModalBody = document.querySelector('.detail-modal-body')
 let deleteModalWrapper = document.querySelector('.delete-modal-wrapper')
-let deleteModalesBtn = document.querySelector('.delete-modal-yes-btn')
-let deleteModaloBtn = document.querySelector('.delete-modal-no-btn')
+let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
+let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
 let detailModalBodyPop = document.querySelector('.detail-modal-body-pop')
 let detailModalBodySaleCount = document.querySelector('.detail-modal-body-sale-count')
 let detailModalBodyCount = document.querySelector('.detail-modal-body-count')
@@ -28,7 +28,7 @@ function showAllOrders() {
                         <td class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">${obj.off} تومان</td>
                         <td class="orders-table-details xs-w-60 s-w-60 md-w-80">
                             <button class="cms-table-btn" onclick="showDetailModal(${obj.popularity} , ${obj.sale_count} , ${obj.count})">جزئیات</button>
-                            <button class="cms-table-btn">حذف</button>
+                            <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
                             <button class="cms-table-btn">تایید</button>
                         </td>
                     </tr>`
@@ -63,8 +63,45 @@ function hideDetailModalWithKey(event) {
     }
 }
 
+// show delete modal
+function showDeleteModal(id) {
+    deleteModalWrapper.classList.add('active')
+    deleteModalNoBtn.addEventListener('click' , () => {
+        deleteModalWrapper.classList.remove('active')
+    })
+    deleteModalYesBtn.addEventListener('click' , async () => {
+        try {
+            let res = await fetch(`${mainUrl}orders/${id}` , {
+                method : 'DELETE',
+                headers : {
+                    'Content-type' : 'application/json'
+                },
+            })
+            console.log(res)
+            deleteModalWrapper.classList.remove('active')
+            showAllOrders()
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+//hide delete modal
+function hideDeleteModal(event) {
+    if (event.target.classList[1] === 'delete-modal-wrapper') {
+        deleteModalWrapper.classList.remove('active')
+    }
+}
+
+function hideDeleteModalWithKey(event) {
+    if (event.key === 'Escape') {
+        deleteModalWrapper.classList.remove('active')
+    }
+}
 
 // events
 window.addEventListener('load' , showAllOrders)
 window.addEventListener('click' , hideDetailModal)
 window.addEventListener('keydown' , hideDetailModalWithKey)
+window.addEventListener('click' , hideDeleteModal)
+window.addEventListener('keydown' , hideDeleteModalWithKey)
