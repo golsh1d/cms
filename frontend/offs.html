@@ -12,23 +12,6 @@
 <body>
     <!-- modal -->
     <div class="modal">
-        <div class="detail-modal">
-            <table class="cms-detail-table">
-                <tr class="cms-detail-table-heading-tr">
-                    <th>محبوبیت</th>
-                    <th>فروش</th>
-                    <th>رنگ بندی</th>
-                </tr>
-                <tr class="cms-detail-table-tr">
-                    <td>100%</td>
-                    <td>10</td>
-                    <td>رنگی</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="modal">
         <div class="delete-modal">
             <p>آیا از حذف محصول مورد نظر مطمئنید؟</p>
             <div class="delete-modal-btn-container">
@@ -103,8 +86,8 @@
         </header>
         <!-- main content -->
         <section class="main-content">
-            <div class="cms-title">لیست سفارشات ثبت شده</div>
-            <div class="empty-err">سفارشی یافت نشد !</div>
+            <div class="cms-title">لیست تخفیف های ثبت شده</div>
+            <div class="empty-err">تخفیفی یافت نشد !</div>
             <table class="cms-table">
                 <thead>
                     <tr class="cms-table-heading-tr">
@@ -116,18 +99,7 @@
                         <th class="xs-w-60 s-w-60 md-w-100">جزئیات</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="cms-table-tr">
-                        <td class="xs-w-50 s-w-60 md-w-100">card</td>
-                        <td class="xs-w-50 s-w-60 md-w-100">20%</td>
-                        <td class="xs-w-50 s-w-60 md-w-100 xs-hidden s-block">10 مرداد 1403</td>
-                        <td class="xs-w-50 s-w-60 md-w-100 xs-hidden s-block">ندا تاری وردی</td>
-                        <td class="xs-w-50 s-w-60 md-w-100">کارت های یوگای کودک</td>
-                        <td class="offs-table-details xs-w-60 s-w-60 md-w-100">
-                            <button class="cms-table-btn">حذف</button>
-                            <button class="cms-table-btn">تایید</button>
-                        </td>
-                    </tr>
+                <tbody class="offs-table-body">
                 </tbody>
             </table>
         </section>
@@ -138,4 +110,5 @@
 
 <script src="/frontend/content/scripts/app.js"></script>
 <script src="/frontend/content/scripts/adminInfo.js"></script>
+<script src="/frontend/content/scripts/offs.js"></script>
 </html>
