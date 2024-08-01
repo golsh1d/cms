@@ -22,7 +22,7 @@ function showAllOffs() {
                         <td class="xs-w-50 s-w-60 md-w-100">${obj.productId}</td>
                         <td class="offs-table-details xs-w-60 s-w-60 md-w-100">
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
-                            <button class="cms-table-btn">تایید</button>
+                            <button class="cms-table-btn" onclick="activeOff(${obj.id})">تایید</button>
                         </td>
                     </tr>`
                 )
@@ -70,6 +70,22 @@ function hideDeleteModalwithKey(event) {
     if(event.key === 'Escape') {
         deleteModalWrapper.classList.remove('active')
         location.reload()
+    }
+}
+
+//active off
+async function activeOff(id) {
+    try {
+        let res = await fetch(`${mainUrl}offs/active-offs/${id}/1` , {
+            method : 'PUT' , 
+            headers : {
+                'Content-type' : 'application/json'
+            },
+        })
+        console.log(res)
+        showAllOffs()
+    } catch (error) {
+        console.log(error);
     }
 }
 
