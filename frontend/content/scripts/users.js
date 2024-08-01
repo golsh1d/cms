@@ -4,6 +4,8 @@ let emptyErrBox = document.querySelector('.empty-err')
 let deleteModalWrapper = document.querySelector('.delete-modal-wrapper')
 let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
 let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
+let detailModalWrapper = document.querySelector('.detail-modal-wrapper')
+let detailModalBody = document.querySelector('.detail-modal-body')
 
 function showAllUsers() {
     fetch(`${mainUrl}users/`)
@@ -22,7 +24,7 @@ function showAllUsers() {
                         <td class="xs-w-60 s-w-70 md-w-100 xs-hidden s-block">${obj.email}</td>
                         <td class="xs-w-60 s-w-70 md-w-100 user-table-details">
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
-                            <button class="cms-table-btn">جزئیات</button>
+                            <button class="cms-table-btn" onclick="showDetailModal(${obj.buy},${obj.score}, '${obj.city}')">جزئیات</button>
                             <button class="cms-table-btn">ویرایش</button>
                         </td>
                     </tr>`
@@ -71,7 +73,34 @@ function hideDeleteModalWithKey(event) {
     }
 }
 
+//show detail modal
+function showDetailModal(buy , score , city) {
+    detailModalWrapper.classList.add('active')
+    detailModalBody.insertAdjacentHTML(`beforeend` , 
+        `<tr class="cms-detail-table-tr">
+            <td class="xs-w-60 s-w-70">${city}</td>
+            <td class="xs-w-60 s-w-70">${buy}تومان</td>
+            <td class="xs-w-60 s-w-70">${score}</td>
+        </tr>`
+    )
+}
+
+// hide detail modal
+function hideDetailModal(event) {
+    if (event.target.classList[1] === 'detail-modal-wrapper') {
+        detailModalWrapper.classList.remove('active')
+    }
+}
+
+function hideDetailModalWithKey(event) {
+    if (event.key === 'Escape') {
+        detailModalWrapper.classList.remove('active')
+    }
+}
+
 // events
 window.addEventListener('load' , showAllUsers)
 window.addEventListener('click', hideDeleteModal)
 window.addEventListener('keydown', hideDeleteModalWithKey)
+window.addEventListener('click', hideDetailModal)
+window.addEventListener('keydown', hideDetailModalWithKey)
