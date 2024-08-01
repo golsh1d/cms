@@ -6,6 +6,18 @@ let deleteModalYesBtn = document.querySelector('.delete-modal-yes-btn')
 let deleteModalNoBtn = document.querySelector('.delete-modal-no-btn')
 let detailModalWrapper = document.querySelector('.detail-modal-wrapper')
 let detailModalBody = document.querySelector('.detail-modal-body')
+let editModalWrapper = document.querySelector('.edit-user-info-modal-wrapper')
+let editModalBtn = document.querySelector('.edit-user-info-modal-btn')
+let editModalNameInput = document.querySelector('.edit-modal-name-input')
+let editModalFNameInput = document.querySelector('.edit-modal-fname-input')
+let editModalUserNameInput = document.querySelector('.edit-modal-user-name-input')
+let editModalPasswordInput = document.querySelector('.edit-modal-password-input')
+let editModalPhoneInput = document.querySelector('.edit-modal-phone-input')
+let editModalEmailInput = document.querySelector('.edit-modal-email-input')
+let editModalCityInput = document.querySelector('.edit-modal-city-input')
+let editModalAddressInput = document.querySelector('.edit-modal-address-input')
+let editModalScoreInput = document.querySelector('.edit-modal-score-input')
+let editModalBuyInput = document.querySelector('.edit-modal-buy-input')
 
 function showAllUsers() {
     fetch(`${mainUrl}users/`)
@@ -25,7 +37,7 @@ function showAllUsers() {
                         <td class="xs-w-60 s-w-70 md-w-100 user-table-details">
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
                             <button class="cms-table-btn" onclick="showDetailModal(${obj.buy},${obj.score}, '${obj.city}')">جزئیات</button>
-                            <button class="cms-table-btn">ویرایش</button>
+                            <button class="cms-table-btn" onclick="showEditModal(${obj.id} , '${obj.firstName}' , '${obj.lastName}' , '${obj.userName}' , '${obj.password}' , ${obj.phone} , '${obj.email}' , '${obj.city}' , '${obj.address}' , ${obj.score} , ${obj.buy})">ویرایش</button>
                         </td>
                     </tr>`
                 )
@@ -98,9 +110,66 @@ function hideDetailModalWithKey(event) {
     }
 }
 
+// show edit modal
+function showEditModal(id , firstName , lastName , userName , password , phone , email , city , address , score , buy) {
+    editModalWrapper.classList.add('active')
+    editModalNameInput.value = firstName 
+    editModalFNameInput.value = lastName
+    editModalUserNameInput.value = userName
+    editModalPasswordInput.value = password
+    editModalPhoneInput.value = phone
+    editModalEmailInput.value = email
+    editModalCityInput.value = city
+    editModalAddressInput.value = address
+    editModalScoreInput.value = score
+    editModalBuyInput.value = buy   
+    editModalBtn.addEventListener('click' , async () => {
+        let editedUserInfoObj = {
+            firstName : editModalNameInput.value ,
+            lastName : editModalFNameInput.value, 
+            userName : editModalUserNameInput.value , 
+            password : editModalPasswordInput.value , 
+            phone : editModalPhoneInput.value , 
+            email : editModalEmailInput.value ,
+            city : editModalCityInput.value ,
+            address : editModalAddressInput.value ,
+            score : editModalScoreInput.value ,
+            buy :  editModalBuyInput.value ,
+        }
+        try {
+            let res = await fetch(`${mainUrl}users/${id}` , {
+                method : 'PUT',
+                headers : {
+                    'Content-type' : 'application/json'
+                },
+                body : JSON.stringify(editedUserInfoObj)
+            })
+            console.log(res)
+            showAllUsers()
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+// hide edit modal
+function hideEditModal(event) {
+    if(event.target.classList[1] === 'edit-user-info-modal-wrapper'){
+        editModalWrapper.classList.remove('active')
+    }
+}
+
+function hideEditModalWithKey(event) {
+    if(event.key === 'Escape') {
+        editModalWrapper.classList.remove('active')
+    }
+}
+
 // events
 window.addEventListener('load' , showAllUsers)
 window.addEventListener('click', hideDeleteModal)
 window.addEventListener('keydown', hideDeleteModalWithKey)
 window.addEventListener('click', hideDetailModal)
 window.addEventListener('keydown', hideDetailModalWithKey)
+window.addEventListener('click', hideEditModal)
+window.addEventListener('keydown', hideEditModalWithKey)
