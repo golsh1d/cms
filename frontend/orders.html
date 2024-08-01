@@ -11,7 +11,7 @@
 
 <body>
     <!-- modal -->
-    <div class="modal">
+    <div class="modal detail-modal-wrapper">
         <div class="detail-modal">
             <table class="cms-detail-table">
                 <thead>
@@ -21,35 +21,18 @@
                         <th class="xs-w-60 s-w-70">موجودی</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="detail-modal-body">
                     <tr class="cms-detail-table-tr">
-                        <td class="xs-w-60 s-w-70">100%</td>
-                        <td class="xs-w-60 s-w-70">10</td>
-                        <td class="xs-w-60 s-w-70">20</td>
+                        <td class="xs-w-60 s-w-70 detail-modal-body-pop"></td>
+                        <td class="xs-w-60 s-w-70 detail-modal-body-sale-count"></td>
+                        <td class="xs-w-60 s-w-70 detail-modal-body-count"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="modal">
-        <div class="detail-modal">
-            <table class="cms-detail-table">
-                <tr class="cms-detail-table-heading-tr">
-                    <th>محبوبیت</th>
-                    <th>فروش</th>
-                    <th>رنگ بندی</th>
-                </tr>
-                <tr class="cms-detail-table-tr">
-                    <td>100%</td>
-                    <td>10</td>
-                    <td>رنگی</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="modal">
+    <div class="modal delete-modal-wrapper">
         <div class="delete-modal">
             <p>آیا از حذف محصول مورد نظر مطمئنید؟</p>
             <div class="delete-modal-btn-container">
@@ -135,26 +118,10 @@
                         <th class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">ساعت</th>
                         <th class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">مبلغ</th>
                         <th class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">تخفیف</th>
-                        <th class="xs-w-50 s-w-60 md-w-80">مبلغ نهایی</th>
                         <th class="xs-w-60 s-w-60 md-w-80">جزئیات</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="cms-table-tr">
-                        <td class="xs-w-50 s-w-60 md-w-80">کارت های یوگای کودک</td>
-                        <td class="xs-w-50 s-w-60 md-w-80">گلشید ابراهیمی</td>
-                        <td class="xs-w-50 s-w-60 md-w-80">10 مرداد 1403</td>
-                        <td class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">12:00</td>
-                        <td class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">150,000 تومان</td>
-                        <td class="xs-w-50 s-w-60 md-w-80 xs-hidden s-block">0</td>
-                        <td class="xs-w-50 s-w-60 md-w-80">150,000 تومان</td>
-                        <td class="orders-table-details xs-w-60 s-w-60 md-w-80">
-                            <button class="cms-table-btn">جزئیات</button>
-                            <button class="cms-table-btn">حذف</button>
-                            <button class="cms-table-btn">بعدا بررسی شود</button>
-                            <button class="cms-table-btn">تایید</button>
-                        </td>
-                    </tr>
+                <tbody class="order-table-body">
                 </tbody>
             </table>
         </section>
@@ -165,5 +132,6 @@
 
 <script src="/frontend/content/scripts/app.js"></script>
 <script src="/frontend/content/scripts/adminInfo.js"></script>
+<script src="/frontend/content/scripts/orders.js"></script>
 
 </html>
