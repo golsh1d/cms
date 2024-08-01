@@ -29,7 +29,7 @@ function showAllOrders() {
                         <td class="orders-table-details xs-w-60 s-w-60 md-w-80">
                             <button class="cms-table-btn" onclick="showDetailModal(${obj.popularity} , ${obj.sale_count} , ${obj.count})">جزئیات</button>
                             <button class="cms-table-btn" onclick="showDeleteModal(${obj.id})">حذف</button>
-                            <button class="cms-table-btn">تایید</button>
+                            <button class="cms-table-btn" onclick="activeOrder(${obj.id})">تایید</button>
                         </td>
                     </tr>`
                 )
@@ -96,6 +96,22 @@ function hideDeleteModal(event) {
 function hideDeleteModalWithKey(event) {
     if (event.key === 'Escape') {
         deleteModalWrapper.classList.remove('active')
+    }
+}
+
+// active order
+async function activeOrder(id) {
+    try {
+        let res = await fetch(`${mainUrl}orders/active-order/${id}/1` , {
+            method : 'PUT',
+            headers : {
+                'Content-type' : 'application/json'
+            },
+        })
+        console.log(res)
+        showAllOrders()
+    } catch (error) {
+        console.log(error);
     }
 }
 
