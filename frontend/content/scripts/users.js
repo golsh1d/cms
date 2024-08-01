@@ -18,6 +18,9 @@ let editModalCityInput = document.querySelector('.edit-modal-city-input')
 let editModalAddressInput = document.querySelector('.edit-modal-address-input')
 let editModalScoreInput = document.querySelector('.edit-modal-score-input')
 let editModalBuyInput = document.querySelector('.edit-modal-buy-input')
+let detailModalBodyCity = document.querySelector('.detail-modal-body-city')
+let detailModalBodyBuy = document.querySelector('.detail-modal-body-buy')
+let detailModalBodyScore = document.querySelector('.detail-modal-body-score')
 
 function showAllUsers() {
     fetch(`${mainUrl}users/`)
@@ -88,13 +91,9 @@ function hideDeleteModalWithKey(event) {
 //show detail modal
 function showDetailModal(buy , score , city) {
     detailModalWrapper.classList.add('active')
-    detailModalBody.insertAdjacentHTML(`beforeend` , 
-        `<tr class="cms-detail-table-tr">
-            <td class="xs-w-60 s-w-70">${city}</td>
-            <td class="xs-w-60 s-w-70">${buy}تومان</td>
-            <td class="xs-w-60 s-w-70">${score}</td>
-        </tr>`
-    )
+    detailModalBodyCity.innerHTML = city    
+    detailModalBodyBuy.innerHTML = buy
+    detailModalBodyScore.innerHTML = score    
 }
 
 // hide detail modal
