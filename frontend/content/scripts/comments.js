@@ -74,6 +74,7 @@ function showCommentText(body) {
     textModalTextArea.innerHTML = body
     textModalBtn.addEventListener('click' , () => {
         textModalWrapper.classList.remove('active')
+        location.reload()
     })
 }
 
@@ -81,12 +82,14 @@ function showCommentText(body) {
 function hideTextModal(event) {
     if (event.target.classList[1] === 'text-modal-wrapper') {
         textModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideTextModalwithKey(event) {
     if(event.key === 'Escape') {
         textModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
@@ -107,6 +110,7 @@ function showDeleteModal(id) {
             })
             console.log(res)
             deleteModalWrapper.classList.remove('active')
+            location.reload()
             showAllComments()
         } catch (error) {
             console.log(error);
@@ -147,6 +151,7 @@ function showUpdateModal(id , body) {
             })
             console.log(res)
             updateModalWrapper.classList.remove('active')
+            location.reload()
             showAllComments()
         } catch (error) {
             console.log(error);
@@ -158,12 +163,14 @@ function showUpdateModal(id , body) {
 function hideUpdateModal(event) {
     if(event.target.classList[1] === 'update-modal-wrapper') {
         updateModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideUpdateModalwithKey(event) {
     if(event.key === 'Escape') {
         updateModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
@@ -219,6 +226,7 @@ function showAnswerModal(id , userId , productId) {
             let data = await res.json()
             console.log(data);
             answerModalWrapper.classList.remove('active')
+            location.reload()
             showAllComments()
         } catch (error) {
             console.log(error);
@@ -229,12 +237,14 @@ function showAnswerModal(id , userId , productId) {
 function hideAnswerModal(event) {
     if(event.target.classList[1] === 'answer-modal-wrapper'){
         answerModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideAnswerModalwithKey(event) {
     if(event.key === `Escape`) {
         answerModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 

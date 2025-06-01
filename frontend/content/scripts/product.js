@@ -71,15 +71,16 @@ function showDetail(popularity , sale , color) {
 function hideDetailModal(event) {
     if (event.target.classList[1] === 'detail-modal-wrapper'){
         detailModal.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideDetailModalWithKey(event) {
     if (event.key === 'Escape') {
         detailModal.classList.remove('active')
+        location.reload()
     }
 }
-
 
 // show delete modal
 function showDelete(id) {
@@ -93,11 +94,12 @@ function showDelete(id) {
             let res = await fetch(`http://localhost:3000/api/products/${id}` , {
                 method : 'DELETE',
                 headers : {
-                    'Content-type' : 'application/json'
+                    'Content-Type' : 'application/json'
                 }
             })
             console.log(res)
             deleteModal.classList.remove('active')
+            location.reload()
             showAllProducts()
         } catch (error) {
             console.log(error);
@@ -155,12 +157,13 @@ function showUpdate(id) {
             let res = await fetch(`http://localhost:3000/api/products/${id}` , {
                 method : 'PUT',
                 headers : {
-                    'Content-type' : 'application/json'
+                    'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify(newEditedInfoObj)
             })
             console.log(res);
             updateModal.classList.remove('active')
+            location.reload()
             showAllProducts()
         } catch (error) {
             console.log(error);
@@ -172,12 +175,14 @@ function showUpdate(id) {
 function hideUpdateModal(event) {
     if (event.target.classList[1] === 'update-modal-wrapper') {
         updateModal.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideUpdateModalWithKey(event) {
     if (event.key === 'Escape') {
         updateModal.classList.remove('active')
+        location.reload()
     }
 }
 
@@ -197,7 +202,7 @@ async function sendData() {
             let res = await fetch('http://localhost:3000/api/products/' , {
                 method : 'POST',
                 headers : {
-                    'Content-type' : 'application/json'
+                    'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify(productInfoObj)
             })

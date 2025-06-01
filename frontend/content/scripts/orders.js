@@ -54,12 +54,14 @@ function showDetailModal(popularity , saleCount , count) {
 function hideDetailModal(event) {
     if (event.target.classList[1] === 'detail-modal-wrapper') {
         detailModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideDetailModalWithKey(event) {
     if (event.key === 'Escape') {
         detailModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
@@ -80,6 +82,7 @@ function showDeleteModal(id) {
             })
             console.log(res)
             deleteModalWrapper.classList.remove('active')
+            location.reload()
             showAllOrders()
         } catch (error) {
             console.log(error);
@@ -112,6 +115,7 @@ async function activeOrder(id) {
             },
         })
         console.log(res)
+        location.reload()
         showAllOrders()
     } catch (error) {
         console.log(error);

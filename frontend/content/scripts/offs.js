@@ -51,6 +51,7 @@ function showDeleteModal(id) {
             })
             console.log(res)
             deleteModalWrapper.classList.remove('active')
+            location.reload()
             showAllOffs()
         } catch (error) {
             console.log(error);
@@ -83,6 +84,7 @@ async function activeOff(id) {
             },
         })
         console.log(res)
+        location.reload()
         showAllOffs()
     } catch (error) {
         console.log(error);

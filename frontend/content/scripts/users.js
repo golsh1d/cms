@@ -69,6 +69,7 @@ function showDeleteModal(id) {
             })
             console.log(res)
             deleteModalWrapper.classList.remove('active')
+            location.reload()
             showAllUsers()
         } catch (error) {
             console.log(error);
@@ -103,12 +104,14 @@ function showDetailModal(buy , score , city) {
 function hideDetailModal(event) {
     if (event.target.classList[1] === 'detail-modal-wrapper') {
         detailModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideDetailModalWithKey(event) {
     if (event.key === 'Escape') {
         detailModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
@@ -147,6 +150,7 @@ function showEditModal(id , firstName , lastName , userName , password , phone ,
                 body : JSON.stringify(editedUserInfoObj)
             })
             console.log(res)
+            location.reload()
             showAllUsers()
         } catch (error) {
             console.log(error);
@@ -158,12 +162,14 @@ function showEditModal(id , firstName , lastName , userName , password , phone ,
 function hideEditModal(event) {
     if(event.target.classList[1] === 'edit-user-info-modal-wrapper'){
         editModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
 function hideEditModalWithKey(event) {
     if(event.key === 'Escape') {
         editModalWrapper.classList.remove('active')
+        location.reload()
     }
 }
 
